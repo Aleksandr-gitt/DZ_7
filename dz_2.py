@@ -4,9 +4,7 @@
 # Нумерация строк и столбцов идет с единицы (подумайте, почему не с нуля). Примечание: бинарной операцией называется 
 # любая операция, у которой ровно два аргумента, как, например, у операции умножения. 
 
-# INPUT:  1 2 3 4 5 6
-#
-# OUT:
+# 1 2 3 4 5 6
 # 2 4 6 8 10 12
 # 3 6 9 12 15 18
 # 4 8 12 16 20 24
@@ -15,4 +13,30 @@
 
 
 
-print_operation_table(operation, num_rows=6, num_columns=6)
+def print_operation_table(operation, num_rows, num_columns):
+    for i in range(1,num_rows+1):
+        for j in range(1,num_columns+1):
+            print(operation(i,j), end='  \  ')
+        print()
+    
+def multy(x,y):
+    return x*y
+def plus(x,y):
+    return x+y
+def minus(x,y):
+    return x-y
+def delt(x,y):
+    return x/y
+
+
+numb = input('Введите действие над матрицей для ее составления(+,-,/,*): ')
+size = int(input('Введите размер матрицы: '))
+  
+if numb == '+':
+    print_operation_table(plus,size, size)
+if numb == '-':
+    print_operation_table(minus,size, size)
+if numb == '/':
+    print_operation_table(delt,size, size)
+if numb == '*':
+    print_operation_table(multy,size, size)

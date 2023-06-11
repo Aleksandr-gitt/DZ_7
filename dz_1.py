@@ -9,3 +9,24 @@
 
 # **Ввод:** пара-ра-рам рам-пам-папам па-ра-па-да    
 #     **Вывод:** Парам пам-пам  
+
+#n = input()
+n = 'пара-ра-рам рам-пам-папам па-ра-па-да'
+
+qwerty = 'аеёиоуэюя'
+t = n.split()
+res=[]
+for i in t:
+    res.append(list(filter(lambda x: x in qwerty, i)))
+
+for i in range(1,len(res)):
+    if len(res[i]) == len(res[0]):
+        flag = True
+    else: 
+        flag = False
+        break
+
+if flag == True:
+    print('Парам пам-пам')
+else:
+    print('Нет ритма')
